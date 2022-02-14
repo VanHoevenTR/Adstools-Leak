@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="true"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00001" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00002" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00003" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00004" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00005" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00006" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00007" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00008" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00009" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00010" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00011" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00012" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00013" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00014" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00015" />
+    <item android:duration="80" android:drawable="@drawable/anim_castle_00016" />
+</animation-list>

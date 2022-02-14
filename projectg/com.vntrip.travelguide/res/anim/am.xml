@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <animation-list android:oneshot="false">
+        <item android:duration="150" android:drawable="@mipmap/img_load1" />
+        <item android:duration="150" android:drawable="@mipmap/img_load2" />
+        <item android:duration="150" android:drawable="@mipmap/img_load3" />
+        <item android:duration="150" android:drawable="@mipmap/img_load4" />
+    </animation-list>
+</set>

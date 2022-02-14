@@ -1,0 +1,127 @@
+B1.Thêm thư viện info và sdark vào smali
+	Thêm thư viện multidex vào folder smali/android/support
+B2.Mở file AndroidManifest.xml
+	Copy vào trên </application>
+
+	<activity android:name="info.mtad.MTFullActivity" android:theme="@android:style/Theme.Black.NoTitleBar">
+		<intent-filter>
+			<action android:name="android.intent.action.MAIN"/>
+			<category android:name="android.intent.category.LAUNCHER"/> 
+		</intent-filter>
+		<meta-data android:name="main-activity" android:value="tên class chính"/>
+		 <meta-data android:name="id-package" android:value="tên packate"/>
+	</activity>
+	<activity android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|screenSize|smallestScreenSize|uiMode" android:name="sdark.google.android.gms.ads.AdActivity" android:theme="@android:style/Theme.Translucent"/>
+	<activity android:name="sdark.google.android.gms.ads.purchase.InAppPurchaseActivity" android:theme="@style/Theme.IAPTheme"/>
+	  <service android:enabled="true" android:exported="true" android:name="info.mtad.TTService"/>
+	<meta-data android:name="sdark.google.android.gms.version" android:value="@integer/google_play_services_version_new"/>
+Sau đó sửa lại tên class chính = tên class chính hiện tại của game và xóa dòng sau tại activity chính của game
+		<intent-filter>
+			<action android:name="android.intent.action.MAIN"/>
+			<category android:name="android.intent.category.LAUNCHER"/> 
+		</intent-filter>
+Để ý class chính có thuộc tính android:launchMode="singleInstance" thì xóa thuộc tính này đi		
+Thêm vào trên <application>
+<uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+
+Tìm tag application trong AndroidManifest kiểm tra xem đã có class name chưa
+	+Nếu có rồi thì tìm đến class đó và thêm method sau
+
+	.method protected attachBaseContext(Landroid/content/Context;)V
+	    .locals 0
+
+	    .prologue
+	    .line 78
+	    invoke-super {p0, p1}, Landroid/app/Application;->attachBaseContext(Landroid/content/Context;)V
+
+	    .line 79
+	    invoke-static {p0}, Landroid/support/multidex/MultiDex;->install(Landroid/content/Context;)V
+
+	    .line 80
+	    return-void
+	.end method		
+	+Nếu chưa có thì add name sau vào tag application
+		android:name="android.support.multidex.MultiDexApplication"
+		
+---------------
+B3.Mở file res/values/public.xml
+  Kiểm tra xem đã có dòng
+  	<public type="style" name="Theme.IAPTheme" id="0x7f0c015b" />
+	<public type="integer" name="google_play_services_version" id="0x7f0a000a" />
+	<public type="integer" name="google_play_services_version_new" id="0x7f0a100a" />
+  Nếu chưa có thì thêm 3 dòng này
+ B4.Mở file res/values/integer.xml
+ 	Thêm dòng nếu chưa có
+ 	<integer name="google_play_services_version">8487000</integer>
+	<integer name="google_play_services_version_new">10084000</integer>
+B5.Mở file	res/values/style.xml
+	Thêm dòng nếu chưa có
+	<style name="Theme.IAPTheme" parent="@android:style/Theme">
+		<item name="android:windowBackground">@android:color/transparent</item>
+		<item name="android:windowNoTitle">true</item>
+		<item name="android:windowIsFloating">true</item>
+		<item name="android:windowIsTranslucent">true</item>
+		<item name="android:windowContentOverlay">@null</item>
+		<item name="android:backgroundDimEnabled">false</item>
+	</style>
+	------
+	smali_classes2
+------
+InterstitialAd
+.method public setAdUnitId(Ljava/lang/String;)V
+    .locals 2
+ 	invoke-static {}, Linfo/mtad/SharePreferencesManager;->getInstance()Linfo/mtad/SharePreferencesManager;
+
+    move-result-object v0
+
+    const-string v1, "in"
+
+    invoke-virtual {v0, v1}, Linfo/mtad/SharePreferencesManager;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1    
+
+    iget-object v0, p0, Lcom/google/android/gms/ads/InterstitialAd;->zzrL:Lcom/google/android/gms/internal/zzfa;
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/internal/zzfa;->setAdUnitId(Ljava/lang/String;)V
+
+    return-void
+.end method
+
+--------------
+BaseAsView
+.method public setAdUnitId(Ljava/lang/String;)V
+    .locals 2
+
+	invoke-static {}, Linfo/mtad/SharePreferencesManager;->getInstance()Linfo/mtad/SharePreferencesManager;
+
+    move-result-object v0
+
+    const-string v1, "bn"
+
+    invoke-virtual {v0, v1}, Linfo/mtad/SharePreferencesManager;->getValue(Ljava/lang/String;)Ljava/lang/String;
+
+    move-result-object v1    
+
+    iget-object v0, p0, Lcom/google/android/gms/ads/BaseAdView;->zzrJ:Lcom/google/android/gms/internal/zzez;
+
+    invoke-virtual {v0, v1}, Lcom/google/android/gms/internal/zzez;->setAdUnitId(Ljava/lang/String;)V
+
+    return-void
+.end method
+Sửa ad Video Unity
+Tìm đến folder com.unity3d.UnityAds
+Tìm đến  method public static init
+dòng .line 527 hoặc UNITY_ADS_GAME_ID và thêm dòng sau phía trên
+const-string v0, "1236891"->1236847 là idgame
+và thay dòng 
+ sput-object p1, Lcom/unity3d/ads/android/properties/UnityAdsProperties;->UNITY_ADS_GAME_ID:Ljava/lang/String;
+ thành
+sput-object v0, Lcom/unity3d/ads/android/properties/UnityAdsProperties;->UNITY_ADS_GAME_ID:Ljava/lang/String;
+
+
+Một số thứ thay đổi
+Đổi packate com.google->sdark.google và đổi các Lcom/google ->Lsdark/google
+Đã đổ class Lsdark/google/android/gms/ads/InterstitialAd  ->Lsdark/google/android/gms/ads/TTClass
+Method setAdUnitId trong InterstitialAd ->TTId
+Đổi method loadAd trong TTClass->loadTT
+Đổi Lsdark/google/android/gms/ads/AdView;->loadTT ->Lsdark/google/android/gms/ads/AdView;->loadAd

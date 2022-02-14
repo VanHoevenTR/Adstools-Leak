@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list android:oneshot="false"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:duration="40" android:drawable="@drawable/anim_yacht_00001" />
+    <item android:duration="40" android:drawable="@drawable/anim_yacht_00002" />
+    <item android:duration="40" android:drawable="@drawable/anim_yacht_00003" />
+    <item android:duration="40" android:drawable="@drawable/anim_yacht_00004" />
+    <item android:duration="40" android:drawable="@drawable/anim_yacht_00005" />
+    <item android:duration="40" android:drawable="@drawable/anim_yacht_00006" />
+    <item android:duration="40" android:drawable="@drawable/anim_yacht_00007" />
+    <item android:duration="40" android:drawable="@drawable/anim_yacht_00008" />
+    <item android:duration="40" android:drawable="@drawable/anim_yacht_00009" />
+    <item android:duration="40" android:drawable="@drawable/anim_yacht_00010" />
+    <item android:duration="40" android:drawable="@drawable/anim_yacht_00011" />
+    <item android:duration="40" android:drawable="@drawable/anim_yacht_00012" />
+</animation-list>
