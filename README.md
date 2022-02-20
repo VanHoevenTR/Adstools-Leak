@@ -1,5 +1,7 @@
 # Adstools leak
 
+![](Image.png)
+
 Adstools is a ads injection tool made by a vietnamese team, it is mainly used for leeching purposes, removing toasts, replace splash screen and inject ads in single process
 
 Where I got that from? I will not tell but I have a friend who works internally who knows the behind the scene of this. I'm never involved in this scene, I just know everything from a friend
@@ -8,4 +10,4 @@ Blackmod's ads24h website (now defunct) is a upgraded version of this, works sim
 
 Is it safe to share this? sure enough, many modders know how to protect their mod so do not worry, Google ads and some others are protected enough against this fraud. I will share this just to let companies know and to SHAME on leechers!!!
 
-USE THIS FOR EDUCATIONAL PURPOSES ONLY. INJECTING ADS IN ANY APPS IS DETECTABLE AND BANNABLE AND YOU WILL BE LIABLE FOR DAMAGES. I WILL REPORT TO ADS COMPANY IF I SEE YOU USE THIS IN YOUR MODS!
+USE THIS FOR EDUCATIONAL PURPOSES ONLY. INJECTING ADS IN ANY APPS YOU DON'T OWN IS CONSIDERED A FRAUD AND MAY BE DETECTABLE AND BANNABLE. YOU CAN BE LIABLE FOR DAMAGES!
